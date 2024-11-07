@@ -52,13 +52,27 @@ public class Graficos1 extends JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) { // metodo del evento
                 btncalcularActionPerformed(evt);
             }
-        });   
+        });
         
-        
-         
+        btncalcular.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() { // tipo de evento, al posicionar el maouse sobre el componente
+            @Override
+            public void mouseMoved(java.awt.event.MouseEvent evt){
+                btncalcularActionPerformed2(evt);
+            }
+        });
     }
     
     private void btncalcularActionPerformed(ActionEvent evt) {
+        float v1 = Float.parseFloat(dato1.getText()); 
+        float v2 = Float.parseFloat(dato2.getText());
+        float s = v1+v2;
+        float r = v1-v2;
+        float m = v1*v2;
+        float d = v1 / v2;
+        result.setText("Suma: " + s + "  |  Resta: " + r + "  |  Multiplicacion: " + m + "  |  Division: " + d);
+    }
+    
+    private void btncalcularActionPerformed2(MouseEvent evt) {
         float v1 = Float.parseFloat(dato1.getText()); 
         float v2 = Float.parseFloat(dato2.getText());
         float s = v1+v2;
