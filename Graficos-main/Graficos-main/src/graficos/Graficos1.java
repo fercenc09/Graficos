@@ -25,7 +25,7 @@ public class Graficos1 extends JFrame {
         setLocationRelativeTo(null); //centrar la ventana
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // funcion terminar la ejecución al cerrar la ventana
         //componenetes
-        result = new JLabel("Resultado");
+        result = new JLabel("");
         label1 = new JLabel("Valor 1");
         label2 = new JLabel("Valor 2");
                 
@@ -35,7 +35,7 @@ public class Graficos1 extends JFrame {
         
         labelResta = new JLabel("Resta: ");
         labelMultiplicar = new JLabel("Multiplicacion: ");
-        labelDividir = new JLabel("Dividir: ");
+        labelDividir = new JLabel("Division: ");
     }
     
     public void Componentes(Graficos1 ventana){
@@ -46,10 +46,7 @@ public class Graficos1 extends JFrame {
         ventana.add(dato2);
         ventana.add(btncalcular);      
         ventana.add(result);
-        ventana.add(labelResta);
-        ventana.add(labelMultiplicar);
-        ventana.add(labelDividir);
-
+        
         btncalcular.addActionListener(new java.awt.event.ActionListener() { //tipo de evento, al dar click en el componente 
             @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) { // metodo del evento
@@ -62,10 +59,13 @@ public class Graficos1 extends JFrame {
     }
     
     private void btncalcularActionPerformed(ActionEvent evt) {
-        int v1 = Integer.parseInt(dato1.getText()); 
-        int v2 = Integer.parseInt(dato2.getText());
-        int re = v1+v2;
-        result.setText("Resultado: " + re);
+        float v1 = Float.parseFloat(dato1.getText()); 
+        float v2 = Float.parseFloat(dato2.getText());
+        float s = v1+v2;
+        float r = v1-v2;
+        float m = v1*v2;
+        float d = v1 / v2;
+        result.setText("Suma: " + s + "  |  Resta: " + r + "  |  Multiplicacion: " + m + "  |  Division: " + d);
     }
     
     public static void main(String[] args) {
